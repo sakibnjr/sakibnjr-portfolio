@@ -155,7 +155,7 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="container mx-auto py-12 min-h-screen flex flex-col justify-center"
+      className="container mx-auto pt-12 min-h-screen flex flex-col justify-center"
     >
       <div className="text-center mb-8">
         <motion.h2

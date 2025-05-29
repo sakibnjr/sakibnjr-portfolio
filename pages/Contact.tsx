@@ -115,7 +115,7 @@ const Contact: React.FC = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative container mx-auto py-12 min-h-[90vh] flex flex-col justify-center items-center overflow-hidden"
+      className="relative container mx-auto min-h-[90vh] flex flex-col justify-center items-center overflow-hidden"
     >
       <motion.div
         className="w-full max-w-7xl mx-auto"
