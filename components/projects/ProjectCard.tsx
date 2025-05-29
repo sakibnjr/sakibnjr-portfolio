@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 import {
@@ -30,7 +31,7 @@ import {
 } from "react-icons/si";
 
 // Map of tech tag names to their corresponding React Icon components
-const techIcons: { [key: string]: React.ElementType } = {
+const techIcons: { [key: string]: React.ComponentType<{ className?: string }> } = {
   "Next.js": SiNextdotjs,
   "Tailwind CSS": SiTailwindcss,
   Stripe: SiStripe,
@@ -82,13 +83,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       {/* Image */}
       <div className="relative w-full h-48 sm:h-56 overflow-hidden">
-        <img
+        <Image
           src={imageUrl}
           alt={title}
-          width={500}
-          height={300}
-          draggable={false}
-          className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-110"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority
+          className="object-cover object-center transition-transform duration-300 group-hover:scale-110"
         />
         {/* Overlay for hover effect */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">

@@ -43,7 +43,7 @@ const ConnectCard: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full h-full bg-card border border-border/50 rounded-xl shadow-lg p-6 dark:bg-background"
+      className="w-full h-full bg-card border border-border/50 rounded-xl shadow p-6 dark:bg-background"
     >
       <motion.h2
         initial={{ opacity: 0, y: 10 }}
