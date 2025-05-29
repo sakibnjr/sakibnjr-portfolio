@@ -8,53 +8,23 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "react-hot-toast";
 import { FiSend, FiMail, FiMapPin, FiClock } from "react-icons/fi";
 
-// Enhanced animation variants
+// Simplified animation variants
 const fadeInVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-const contactInfoVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: 0.2 + i * 0.1,
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  }),
-};
-
-const formVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
 };
 
 const Contact: React.FC = () => {
   const formRef = useRef(null);
-  const isInView = useInView(formRef, { once: true, amount: 0.3 });
+  const isInView = useInView(formRef, { once: true, amount: 0.2 });
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -65,6 +35,7 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("/api/send", {
@@ -80,83 +51,86 @@ const Contact: React.FC = () => {
       }
 
       toast.success("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" }); // Clear form
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Error:", error);
       toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
+  const contactInfo = [
+    {
+      icon: <FiMail className="h-5 w-5 text-primary" />,
+      title: "Email",
+      content: "sakibnjr@proton.me",
+    },
+    {
+      icon: <FiMapPin className="h-5 w-5 text-primary" />,
+      title: "Location",
+      content: "Dhaka, Bangladesh",
+    },
+    {
+      icon: <FiClock className="h-5 w-5 text-primary" />,
+      title: "Availability",
+      content: "Available for freelance & full-time opportunities",
+    },
+  ];
+
+  const formFields = [
+    {
+      id: "name",
+      label: "Name",
+      type: "text",
+      placeholder: "Your Name",
+    },
+    {
+      id: "email",
+      label: "Email",
+      type: "email",
+      placeholder: "you@example.com",
+    },
+  ];
 
   return (
     <section
       id="contact"
-      className="relative container mx-auto py-12 min-h-screen flex flex-col justify-center items-center overflow-hidden"
+      className="relative container mx-auto py-12 min-h-[90vh] flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
           {/* Left Side - Text Content */}
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={fadeInVariants}
+            transition={{ duration: 0.5 }}
             className="w-full lg:w-1/2 text-left"
           >
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-4"
-            >
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
               Let&apos;s Build Something Amazing
-              
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-lg text-muted-foreground mb-8"
-            >
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground mb-8">
               Whether you have a project in mind or just want to explore
               possibilities, I&apos;m here to help bring your vision to life.
-            </motion.p>
+            </p>
 
             {/* Contact Info */}
-            <div className="space-y-6">
-              {[
-                {
-                  icon: <FiMail className="h-6 w-6 text-primary" />,
-                  title: "Email",
-                  content: "sakibnjr@proton.me",
-                },
-                {
-                  icon: <FiMapPin className="h-6 w-6 text-primary" />,
-                  title: "Location",
-                  content: "Dhaka, Bangladesh",
-                },
-                {
-                  icon: <FiClock className="h-6 w-6 text-primary" />,
-                  title: "Availability",
-                  content: "Available for freelance & full-time opportunities",
-                },
-              ].map((item, index) => (
+            <div className="space-y-4">
+              {contactInfo.map((item, index) => (
                 <motion.div
                   key={item.title}
-                  custom={index}
-                  variants={contactInfoVariants}
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
-                  className="flex items-start gap-4"
+                  variants={fadeInVariants}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="flex items-start gap-3"
                 >
-                  <motion.div
-                    className="mt-1"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    {item.icon}
-                  </motion.div>
+                  <div className="mt-1">{item.icon}</div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.content}</p>
+                    <h3 className="font-semibold text-base sm:text-lg mb-1">{item.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">{item.content}</p>
                   </div>
                 </motion.div>
               ))}
@@ -168,47 +142,17 @@ const Contact: React.FC = () => {
             ref={formRef}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            variants={formVariants}
+            variants={fadeInVariants}
+            transition={{ duration: 0.5 }}
             className="w-full lg:w-1/2"
           >
-            <motion.div
-              className="bg-card border border-border/50 rounded-lg p-6 sm:p-8 shadow-xl dark:bg-background dark:border-gray-100/50"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-2xl font-semibold text-foreground mb-6"
-              >
+            <div className="bg-card border border-border/50 rounded-lg p-6 sm:p-8 shadow-xl">
+              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-6">
                 Send Me a Message
-              </motion.h3>
+              </h3>
               <form onSubmit={handleSubmit} className="space-y-4">
-                {[
-                  {
-                    id: "name",
-                    label: "Name",
-                    type: "text",
-                    placeholder: "Your Name",
-                  },
-                  {
-                    id: "email",
-                    label: "Email",
-                    type: "email",
-                    placeholder: "you@example.com",
-                  },
-                ].map((field, index) => (
-                  <motion.div
-                    key={field.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
-                  >
+                {formFields.map((field) => (
+                  <div key={field.id}>
                     <label
                       htmlFor={field.id}
                       className="block text-sm font-medium text-muted-foreground mb-1"
@@ -225,15 +169,9 @@ const Contact: React.FC = () => {
                       required
                       className="bg-background border-input focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                     />
-                  </motion.div>
+                  </div>
                 ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                  }
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                >
+                <div>
                   <label
                     htmlFor="message"
                     className="block text-sm font-medium text-muted-foreground mb-1"
@@ -250,19 +188,18 @@ const Contact: React.FC = () => {
                     required
                     className="bg-background border-input focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                   />
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                </div>
+                <Button 
+                  type="submit" 
+                  size="lg" 
                   className="w-full"
+                  disabled={isSubmitting}
                 >
-                  <Button type="submit" size="lg" className="w-full">
-                    <FiSend className="mr-2 h-5 w-5" /> Send Message
-                  </Button>
-                </motion.div>
+                  <FiSend className="mr-2 h-5 w-5" /> 
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
               </form>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
