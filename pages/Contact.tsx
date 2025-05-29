@@ -117,7 +117,7 @@ const Contact: React.FC = () => {
       id="contact"
       className="relative container mx-auto py-12 min-h-[90vh] flex flex-col justify-center items-center overflow-hidden"
     >
-      <motion.div 
+      <motion.div
         className="w-full max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
@@ -129,13 +129,13 @@ const Contact: React.FC = () => {
             variants={itemVariants}
             className="w-full lg:w-1/2 text-left"
           >
-            <motion.h2 
+            <motion.h2
               variants={itemVariants}
               className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4"
             >
               Let&apos;s Build Something Amazing
             </motion.h2>
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg text-muted-foreground mb-8"
             >
@@ -145,7 +145,7 @@ const Contact: React.FC = () => {
 
             {/* Contact Info */}
             <div className="space-y-4">
-              {contactInfo.map((item, index) => (
+              {contactInfo.map((item) => (
                 <motion.div
                   key={item.title}
                   variants={itemVariants}
@@ -153,8 +153,12 @@ const Contact: React.FC = () => {
                 >
                   <div className="mt-1">{item.icon}</div>
                   <div>
-                    <h3 className="font-semibold text-base sm:text-lg mb-1">{item.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">{item.content}</p>
+                    <h3 className="font-semibold text-base sm:text-lg mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">
+                      {item.content}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -162,12 +166,9 @@ const Contact: React.FC = () => {
           </motion.div>
 
           {/* Right Side - Contact Form */}
-          <motion.div
-            variants={itemVariants}
-            className="w-full lg:w-1/2"
-          >
+          <motion.div variants={itemVariants} className="w-full lg:w-1/2">
             <div className="bg-card border border-border/50 rounded-lg p-6 sm:p-8 shadow-xl">
-              <motion.h3 
+              <motion.h3
                 variants={itemVariants}
                 className="text-xl sm:text-2xl font-semibold text-foreground mb-6"
               >
@@ -175,10 +176,7 @@ const Contact: React.FC = () => {
               </motion.h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 {formFields.map((field) => (
-                  <motion.div 
-                    key={field.id}
-                    variants={itemVariants}
-                  >
+                  <motion.div key={field.id} variants={itemVariants}>
                     <label
                       htmlFor={field.id}
                       className="block text-sm font-medium text-muted-foreground mb-1"
@@ -216,13 +214,13 @@ const Contact: React.FC = () => {
                   />
                 </motion.div>
                 <motion.div variants={itemVariants}>
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    size="lg"
                     className="w-full"
                     disabled={isSubmitting}
                   >
-                    <FiSend className="mr-2 h-5 w-5" /> 
+                    <FiSend className="mr-2 h-5 w-5" />
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </motion.div>
