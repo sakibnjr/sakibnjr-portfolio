@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ModeToggle } from "../core/ModeToggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
 
 // Bootstrap Icons - consistent filled style
 import {
@@ -102,7 +103,7 @@ const SideNavRedesigned = () => {
               >
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <a href="/" className="block">
+                    <Link href="/" className="block">
                       <Avatar>
                         <AvatarImage
                           src="https://github.com/sakibnjr/sakibnjr/blob/main/sakibnjr.jpg?raw=true"
@@ -110,7 +111,7 @@ const SideNavRedesigned = () => {
                         />
                         <AvatarFallback>SN</AvatarFallback>
                       </Avatar>
-                    </a>
+                    </Link>
                   </TooltipTrigger>
                   <TooltipContent side="right" className="ml-2">
                     <p className="font-playwrite">Sakib Njr</p>
@@ -128,7 +129,7 @@ const SideNavRedesigned = () => {
                 >
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <a
+                      <Link
                         href={item.href}
                         onClick={(e) => handleNavClick(e, item.href)}
                         className={`
@@ -155,7 +156,7 @@ const SideNavRedesigned = () => {
                             }}
                           />
                         )}
-                      </a>
+                      </Link>
                     </TooltipTrigger>
                     <TooltipContent
                       side="right"
@@ -191,9 +192,9 @@ const SideNavRedesigned = () => {
 
       {/* Mobile Header (Hamburger Menu) */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm p-4 flex justify-between items-center lg:hidden border-b border-border/50">
-        <a href="/" className="text-xl font-bold font-playwrite">
+        <Link href="/" className="text-xl font-bold font-playwrite">
           Sakib Njr
-        </a>
+        </Link>
         <button
           onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
           className="p-2 rounded-full text-foreground hover:bg-primary/10 transition-colors duration-200"
@@ -219,7 +220,7 @@ const SideNavRedesigned = () => {
           <ul className="flex flex-col items-center space-y-8 text-2xl">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   onClick={(e) => {
                     handleNavClick(e, item.href);
@@ -238,7 +239,7 @@ const SideNavRedesigned = () => {
                 >
                   <item.icon className="h-7 w-7" />
                   <span>{item.label}</span>
-                </a>
+                </Link>
               </li>
             ))}
             <li className="pt-4">

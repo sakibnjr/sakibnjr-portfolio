@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion, useInView, stagger } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -107,19 +107,8 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-4"
             >
-              Let's Build Something
-              <motion.span
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 0, scale: 0.8 }
-                }
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-primary"
-              >
-                {" Amazing"}
-              </motion.span>
+              Let&apos;s Build Something Amazing
+              
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -128,7 +117,7 @@ const Contact: React.FC = () => {
               className="text-lg text-muted-foreground mb-8"
             >
               Whether you have a project in mind or just want to explore
-              possibilities, I'm here to help bring your vision to life.
+              possibilities, I&apos;m here to help bring your vision to life.
             </motion.p>
 
             {/* Contact Info */}

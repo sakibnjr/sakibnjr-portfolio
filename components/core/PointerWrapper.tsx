@@ -13,7 +13,7 @@ const PointerWrapper = () => {
           height="24"
           viewBox="0 0 24 24"
         >
-          <path fill="#f00" d="M4.5.79v22.42l6.56-6.57h9.29L4.5.79z" />
+          <path fill="#FF2056" d="M4.5.79v22.42l6.56-6.57h9.29L4.5.79z" />
         </svg>
       </div>
     </Pointer>

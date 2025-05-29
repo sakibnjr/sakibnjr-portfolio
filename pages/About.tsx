@@ -257,7 +257,23 @@ export default AboutMe;
 interface GridItemWrapperProps {
   children: React.ReactNode;
   className?: string;
-  variants?: any;
+  variants?: {
+    hidden: {
+      opacity?: number;
+      y?: number;
+      scale?: number;
+    };
+    visible: {
+      opacity?: number;
+      y?: number;
+      scale?: number;
+      transition?: {
+        duration?: number;
+        ease?: number[];
+        delay?: number;
+      };
+    };
+  };
 }
 
 const GridItemWrapper: React.FC<GridItemWrapperProps> = ({
