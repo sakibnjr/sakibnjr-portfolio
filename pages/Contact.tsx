@@ -8,15 +8,33 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "react-hot-toast";
 import { FiSend, FiMail, FiMapPin, FiClock } from "react-icons/fi";
 
-// Simplified animation variants
-const fadeInVariants = {
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    },
+  },
 };
 
 const Contact: React.FC = () => {
-  const formRef = useRef(null);
-  const isInView = useInView(formRef, { once: true, amount: 0.2 });
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -95,36 +113,42 @@ const Contact: React.FC = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className="relative container mx-auto py-12 min-h-[90vh] flex flex-col justify-center items-center overflow-hidden"
     >
-      <div className="w-full max-w-7xl mx-auto">
+      <motion.div 
+        className="w-full max-w-7xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
           {/* Left Side - Text Content */}
           <motion.div
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={fadeInVariants}
-            transition={{ duration: 0.5 }}
+            variants={itemVariants}
             className="w-full lg:w-1/2 text-left"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
+            <motion.h2 
+              variants={itemVariants}
+              className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4"
+            >
               Let&apos;s Build Something Amazing
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground mb-8">
+            </motion.h2>
+            <motion.p 
+              variants={itemVariants}
+              className="text-base sm:text-lg text-muted-foreground mb-8"
+            >
               Whether you have a project in mind or just want to explore
               possibilities, I&apos;m here to help bring your vision to life.
-            </p>
+            </motion.p>
 
             {/* Contact Info */}
             <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <motion.div
                   key={item.title}
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
-                  variants={fadeInVariants}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  variants={itemVariants}
                   className="flex items-start gap-3"
                 >
                   <div className="mt-1">{item.icon}</div>
@@ -139,20 +163,22 @@ const Contact: React.FC = () => {
 
           {/* Right Side - Contact Form */}
           <motion.div
-            ref={formRef}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={fadeInVariants}
-            transition={{ duration: 0.5 }}
+            variants={itemVariants}
             className="w-full lg:w-1/2"
           >
             <div className="bg-card border border-border/50 rounded-lg p-6 sm:p-8 shadow-xl">
-              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-6">
+              <motion.h3 
+                variants={itemVariants}
+                className="text-xl sm:text-2xl font-semibold text-foreground mb-6"
+              >
                 Send Me a Message
-              </h3>
+              </motion.h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 {formFields.map((field) => (
-                  <div key={field.id}>
+                  <motion.div 
+                    key={field.id}
+                    variants={itemVariants}
+                  >
                     <label
                       htmlFor={field.id}
                       className="block text-sm font-medium text-muted-foreground mb-1"
@@ -169,9 +195,9 @@ const Contact: React.FC = () => {
                       required
                       className="bg-background border-input focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                     />
-                  </div>
+                  </motion.div>
                 ))}
-                <div>
+                <motion.div variants={itemVariants}>
                   <label
                     htmlFor="message"
                     className="block text-sm font-medium text-muted-foreground mb-1"
@@ -188,21 +214,23 @@ const Contact: React.FC = () => {
                     required
                     className="bg-background border-input focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                   />
-                </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  <FiSend className="mr-2 h-5 w-5" /> 
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    <FiSend className="mr-2 h-5 w-5" /> 
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
+                </motion.div>
               </form>
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

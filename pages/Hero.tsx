@@ -152,10 +152,10 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center justify-center text-foreground/60 cursor-pointer hover:text-foreground/80 transition-colors"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center justify-center text-foreground/60 cursor-pointer hover:text-foreground/80 transition-colors"
         onClick={scrollDown}
       >
-        <span className="text-xs sm:text-sm md:text-base mb-2 font-medium">
+        <span className="text-xs sm:text-sm md:text-base mb-1 sm:mb-2 font-medium">
           Scroll Down
         </span>
         <motion.div
@@ -165,8 +165,9 @@ const Hero = () => {
             duration: 1.5,
             ease: "easeInOut",
           }}
+          className="flex items-center justify-center"
         >
-          <MdOutlineArrowDownward className="h-5 w-5 sm:h-6 sm:w-6" />
+          <MdOutlineArrowDownward className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
         </motion.div>
       </motion.div>
     </section>
