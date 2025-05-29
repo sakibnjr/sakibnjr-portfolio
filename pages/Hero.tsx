@@ -74,10 +74,10 @@ const Hero = () => {
 
 
       {/* Main Content Container */}
-      <div className="relative w-full max-w-4xl mx-auto pb-16 sm:pb-20">
+      <div className="relative w-full max-w-4xl mx-auto pb-16">
         {/* Header: Contains main content */}
         <motion.header
-          className="text-center space-y-6 sm:space-y-8 md:space-y-10"
+          className="text-center space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
