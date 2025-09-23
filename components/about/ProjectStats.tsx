@@ -1,7 +1,6 @@
-// components/ProjectStats.tsx
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import React, { useRef } from "react";
 import { FiTrendingUp } from "react-icons/fi";
 
@@ -60,7 +59,9 @@ export const ProjectStatsGrid: React.FC<ProjectStatsGridProps> = ({
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
-              animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+              animate={
+                isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }
+              }
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               className="relative flex flex-col items-center justify-center flex-grow"
             >
@@ -81,7 +82,9 @@ export const ProjectStatsGrid: React.FC<ProjectStatsGridProps> = ({
                 {stat.value}
                 <motion.span
                   initial={{ opacity: 0, x: -5 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -5 }}
+                  animate={
+                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -5 }
+                  }
                   transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
                   className="text-primary/70"
                 >
@@ -90,7 +93,9 @@ export const ProjectStatsGrid: React.FC<ProjectStatsGridProps> = ({
               </motion.h3>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+                }
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                 className="text-sm md:text-base text-muted-foreground mt-2 font-medium"
               >

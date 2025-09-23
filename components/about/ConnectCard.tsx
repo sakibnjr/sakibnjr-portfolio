@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FiCopy } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import toast from "react-hot-toast";
 
 type Platform = "github" | "linkedin" | "instagram";

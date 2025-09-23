@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun } from "lucide-react";
+import { FiSun, FiMoon } from "react-icons/fi";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -23,10 +23,10 @@ export function ModeToggle() {
       className="relative h-9 w-9 overflow-hidden" // Keep styling, added overflow-hidden for neatness
     >
       {/* Sun Icon: Visible in light mode, hidden/rotated in dark mode */}
-      <Sun className="absolute inset-0 m-auto h-[1.2rem] w-[1.2rem] transition-all rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
+      <FiSun className="absolute inset-0 m-auto h-[1.2rem] w-[1.2rem] transition-all rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
 
       {/* Moon Icon: Hidden/rotated in light mode, visible in dark mode */}
-      <Moon className="absolute inset-0 m-auto h-[1.2rem] w-[1.2rem] transition-all rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
+      <FiMoon className="absolute inset-0 m-auto h-[1.2rem] w-[1.2rem] transition-all rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
 
       {/* Screen Reader Only text for accessibility */}
       <span className="sr-only">Toggle theme</span>

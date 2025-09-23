@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -64,15 +64,30 @@ const Contact: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error("Failed to send message");
+        // Show more detailed error information
+        if (result.details) {
+          const fieldErrors = Object.entries(result.details)
+            .filter(([, error]) => error)
+            .map(([field, error]) => `${field}: ${error}`)
+            .join(", ");
+          throw new Error(
+            fieldErrors || result.error || "Failed to send message"
+          );
+        }
+        throw new Error(result.error || "Failed to send message");
       }
 
-      toast.success("Message sent successfully!");
+      toast.success(result.message || "Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Error:", error);
-      toast.error("Failed to send message. Please try again.");
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again.";
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -115,7 +130,7 @@ const Contact: React.FC = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative container mx-auto min-h-[90vh] flex flex-col justify-center items-center overflow-hidden"
+      className="relative container mx-auto min-h-[90vh] pt-12 md:pt-0 flex flex-col justify-center items-center overflow-hidden"
     >
       <motion.div
         className="w-full max-w-7xl mx-auto"

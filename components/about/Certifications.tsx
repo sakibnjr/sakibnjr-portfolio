@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { LinkPreview } from "@/components/ui/link-preview";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { FiAward } from "react-icons/fi";
 
@@ -56,7 +56,9 @@ export function Certifications({ data }: { data: CertificationItem[] }) {
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+              }
               transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
               className="flex items-start gap-4"
             >
@@ -66,11 +68,15 @@ export function Certifications({ data }: { data: CertificationItem[] }) {
               <div className="flex-1">
                 <motion.h2
                   initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                  animate={
+                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+                  }
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                   className="text-md md:text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300"
                 >
-                  <LinkPreview url={cert.url}>{cert.certificateTitle}</LinkPreview>
+                  <LinkPreview url={cert.url}>
+                    {cert.certificateTitle}
+                  </LinkPreview>
                 </motion.h2>
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -79,7 +85,8 @@ export function Certifications({ data }: { data: CertificationItem[] }) {
                   className="space-y-1"
                 >
                   <p className="text-sm text-muted-foreground">
-                    Issued by: <span className="font-medium">{cert.issuedBy}</span>
+                    Issued by:{" "}
+                    <span className="font-medium">{cert.issuedBy}</span>
                   </p>
                   <p className="text-sm text-muted-foreground/70">
                     {cert.issuedDate}

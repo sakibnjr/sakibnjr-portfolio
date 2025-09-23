@@ -2,9 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [
-      "api.microlink.io", 'plus.unsplash.com', 'images.unsplash.com' // Microlink Image Preview
-    ],
+    domains: ["api.microlink.io", "plus.unsplash.com", "images.unsplash.com"],
+  },
+  experimental: {
+    optimizePackageImports: ["motion", "react-icons"],
   },
 };
 

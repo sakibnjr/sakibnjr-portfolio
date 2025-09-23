@@ -8,7 +8,7 @@ import { Education } from "@/components/about/Education";
 import { Certifications } from "@/components/about/Certifications";
 import { Toaster } from "react-hot-toast";
 
-import { motion, useInView } from "framer-motion"; // Import motion and useInView
+import { motion, useInView } from "motion/react"; // Import motion and useInView
 import { useRef } from "react"; // Import useRef
 
 import certifications from "@/data/certifications.json";
@@ -18,7 +18,7 @@ import Image from "next/image";
 
 const stats = [
   { label: "Projects", value: 10 },
-  { label: "Total Tools", value: 20 },
+  { label: "Technologies Mastered", value: 10 },
   { label: "Certifications", value: 5 },
 ];
 

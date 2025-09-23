@@ -1,0 +1,91 @@
+[
+  {
+    "name": "Arix",
+    "img": "/projects/arix.png",
+    "live": "https://arix-ecommerce.vercel.app/",
+    "github": "https://github.com/sakibnjr/arix-ecommerce",
+    "description": "A modern e-commerce platform for premium anime-themed t-shirts, built with Next.js.",
+    "techStack": [
+      "NextJS",
+      "TailwindCSS",
+      "Framer Motion",
+      "ExpressJs",
+      "MongoDB",
+      "Cloudinary",
+      "JWT"
+    ]
+  },
+  {
+    "name": "NeonFood",
+    "img": "/projects/neonfood.png",
+    "live": "https://neon-food.vercel.app/",
+    "github": "https://github.com/sakibnjr/NeonFood",
+    "description": "AI-powered restaurant management system.",
+    "techStack": [
+      "React",
+      "MongoDB",
+      "Express",
+      "Vite",
+      "JWT",
+      "TailwindCSS",
+      "Cloudinary",
+      "Gemini"
+    ]
+  },
+  {
+    "name": "Portfolio",
+    "img": "/projects/portfolio.png",
+    "live": "https://www.sakibnjr.site/",
+    "github": "https://github.com/sakibnjr/sakibnjr-portfolio",
+    "description": "Personal portfolio website showcasing projects, skills, and contact info.",
+    "techStack": ["NextJS", "TypeScript", "TailwindCSS", "Framer Motion"]
+  },
+  {
+    "name": "AcademicX",
+    "img": "/projects/academicx.png",
+    "live": "https://diu-result-analyzer.vercel.app/",
+    "github": "https://github.com/sakibnjr/diu-result-analyzer",
+    "description": "Web app for DIU students with real-time grade analysis, interactive charts, and academic summaries.",
+    "techStack": ["NextJS", "TailwindCSS", "Framer Motion"]
+  },
+
+  {
+    "name": "WorkoutBuddy",
+    "img": "/projects/workoutbuddy.png",
+    "live": "https://workout-buddy-vert-five.vercel.app/",
+    "github": "https://github.com/sakibnjr/WorkoutBuddy",
+    "description": "A modern web application to track and manage your workouts.",
+    "techStack": ["React", "MongoDB", "Express", "Vite", "JWT"]
+  },
+  {
+    "name": "CardBuddy",
+    "img": "/projects/cardbuddy.png",
+    "live": "https://cardbuddy.vercel.app/",
+    "github": "https://github.com/sakibnjr/CardBuddy_react",
+    "description": "React-based web application for virtual card management, balance, and transaction history.",
+    "techStack": ["React", "MongoDB", "Express", "Vite", "JWT", "TailwindCSS"]
+  },
+  {
+    "name": "CyberAttendance",
+    "img": "/projects/sas.png",
+    "live": "https://sas-three-rose.vercel.app/",
+    "github": "https://github.com/sakibnjr/Attendance_system_V2",
+    "description": "Attendance management system that uses MAC address scanning to track student attendance.",
+    "techStack": ["React", "MongoDB", "Express", "Vite", "TailwindCSS"]
+  },
+  {
+    "name": "Faraja Events",
+    "img": "/projects/farajaevents.png",
+    "live": "https://faraja-events.vercel.app/",
+    "github": "https://faraja-events.vercel.app/",
+    "description": "An event management landing page for a client.",
+    "techStack": ["NextJS", "TailwindCSS", "Framer Motion"]
+  },
+  {
+    "name": "Nurtury",
+    "img": "/projects/nurtury.png",
+    "github": "https://github.com/sakibnjr/Nurtury",
+    "description": "Weather-based smart plant care application.",
+    "techStack": ["HTML", "Vanilla JS", "TailwindCSS", "Gemini", "Tauri v2"]
+  }
+]

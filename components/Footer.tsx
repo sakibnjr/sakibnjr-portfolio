@@ -1,8 +1,7 @@
-// components/Footer.tsx
-"use client"; // If you plan to add client-side interactivity like animations or current year logic
+"use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaHeart } from "react-icons/fa"; // Example icon for "Made with Love"
 import { FiMail, FiLinkedin, FiGithub } from "react-icons/fi"; // Social icons
 
@@ -15,7 +14,7 @@ const Footer: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }} // Only animate when 50% in view, once
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-card border-t border-border/50 py-8 text-center text-muted-foreground text-sm dark:bg-background dark:border-gray-100/50"
+      className="bg-card md:border-t md:border-border/50 py-8 text-center text-muted-foreground text-sm dark:bg-background dark:border-gray-100/50"
     >
       <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
         {/* Copyright & Made With */}

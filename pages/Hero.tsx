@@ -2,7 +2,7 @@
 
 import { Cover } from "@/components/hero/cover"; // Assuming this is a custom component
 import { AuroraText } from "@/components/magicui/aurora-text";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "next/link"; // Import Link for navigation
 import { Button } from "@/components/ui/button"; // Import Shadcn Button
 
@@ -31,8 +31,6 @@ const itemVariants = {
   },
 };
 
-
-
 const Hero = () => {
   const scrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -51,19 +49,35 @@ const Hero = () => {
 
   return (
     <section
-      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden lg:px-8"
       id="home"
     >
       <style jsx global>{`
         @keyframes wave {
-          0% { transform: rotate(0deg); }
-          10% { transform: rotate(14deg); }
-          20% { transform: rotate(-8deg); }
-          30% { transform: rotate(14deg); }
-          40% { transform: rotate(-4deg); }
-          50% { transform: rotate(10deg); }
-          60% { transform: rotate(0deg); }
-          100% { transform: rotate(0deg); }
+          0% {
+            transform: rotate(0deg);
+          }
+          10% {
+            transform: rotate(14deg);
+          }
+          20% {
+            transform: rotate(-8deg);
+          }
+          30% {
+            transform: rotate(14deg);
+          }
+          40% {
+            transform: rotate(-4deg);
+          }
+          50% {
+            transform: rotate(10deg);
+          }
+          60% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(0deg);
+          }
         }
         .animate-wave {
           display: inline-block;
@@ -71,7 +85,6 @@ const Hero = () => {
           transform-origin: 70% 70%;
         }
       `}</style>
-
 
       {/* Main Content Container */}
       <div className="relative w-full max-w-4xl mx-auto pb-16">
@@ -87,7 +100,8 @@ const Hero = () => {
             variants={itemVariants}
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 dark:text-neutral-400 font-medium"
           >
-            <span className="animate-wave inline-block mr-2">👋</span> Hello, I&apos;m Sakib
+            <span className="animate-wave inline-block mr-2">👋</span> Hello,
+            I&apos;m Sakib
           </motion.div>
 
           {/* H1: Main heading */}
@@ -99,8 +113,6 @@ const Hero = () => {
             <br className="hidden sm:block" />
             <AuroraText>Visually Stunning</AuroraText> Web Solutions.
           </motion.h1>
-
-          
 
           {/* Sub-headline */}
           <motion.p
@@ -137,11 +149,21 @@ const Hero = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
               className="w-full sm:w-auto"
             >
-              <a href="/sakibnjr-resume.pdf" download className="w-full">
-                <Button variant="outline" size="lg" className="w-full text-sm sm:text-base">
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full text-sm sm:text-base"
+                asChild
+              >
+                <a
+                  href="/sakibnjr_resume.pdf"
+                  download="Sakib_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Download Resume
-                </Button>
-              </a>
+                </a>
+              </Button>
             </motion.div>
           </motion.nav>
         </motion.header>
