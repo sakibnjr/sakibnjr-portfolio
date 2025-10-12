@@ -13,7 +13,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Sakib Nahid | Web Developer Portfolio",
   description:
-    "Explore Sakib Nahid's personal portfolio showcasing projects, skills, and experience as a frontend web developer.",
+    "Explore Sakib Nahid's personal portfolio showcasing projects, skills, and experience as a full-Stack web developer.",
 };
 
 export default function RootLayout({

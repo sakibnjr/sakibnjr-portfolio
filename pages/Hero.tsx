@@ -1,11 +1,10 @@
 "use client";
 
-import { Cover } from "@/components/hero/cover"; // Assuming this is a custom component
+import { Cover } from "@/components/hero/cover";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { motion } from "motion/react";
-import Link from "next/link"; // Import Link for navigation
-import { Button } from "@/components/ui/button"; // Import Shadcn Button
-
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { MdOutlineArrowDownward } from "react-icons/md";
 
 const containerVariants = {
@@ -156,8 +155,8 @@ const Hero = () => {
                 asChild
               >
                 <a
-                  href="/sakibnjr_resume.pdf"
-                  download="Sakib_Resume.pdf"
+                  href="/Resume.pdf"
+                  download="Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

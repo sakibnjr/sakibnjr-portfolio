@@ -1,5 +1,4 @@
-"use client"; // Make sure this is at the very top for client-side functionality
-
+"use client";
 import LogoN from "@/components/about/LogoN";
 import { TechStack } from "@/components/about/TechStack";
 
@@ -8,9 +7,8 @@ import { Education } from "@/components/about/Education";
 import { Certifications } from "@/components/about/Certifications";
 import { Toaster } from "react-hot-toast";
 
-import { motion, useInView } from "motion/react"; // Import motion and useInView
-import { useRef } from "react"; // Import useRef
-
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 import certifications from "@/data/certifications.json";
 import { ProjectStatsGrid } from "@/components/about/ProjectStats";
 import { ProfileCard } from "@/components/ui/card-spotlight";
@@ -22,7 +20,6 @@ const stats = [
   { label: "Certifications", value: 5 },
 ];
 
-// Enhanced animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -145,7 +142,7 @@ const AboutMe: React.FC = () => {
           </ProfileCard>
         </GridItemWrapper>
 
-        {/* Frontend Developer Title */}
+        {/* Full-Stack Developer Title */}
         <GridItemWrapper
           className="col-span-1 sm:col-span-2 lg:col-span-2 lg:col-start-3 lg:row-start-1 row-span-2 border rounded-xl shadow flex justify-center items-center px-3 py-2"
           variants={slideInVariants}
@@ -158,7 +155,7 @@ const AboutMe: React.FC = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="uppercase tracking-widest text-lg lg:text-2xl font-semibold"
           >
-            Frontend
+            Full-Stack
             <motion.span
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}

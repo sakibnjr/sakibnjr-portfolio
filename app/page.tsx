@@ -1,8 +1,6 @@
 import PointerWrapper from "@/components/core/PointerWrapper";
 import Hero from "@/pages/Hero";
-
 import About from "@/pages/About";
-
 import SideNav from "@/components/core/SideNav";
 import Projects from "@/pages/Projects";
 import Contact from "@/pages/Contact";
