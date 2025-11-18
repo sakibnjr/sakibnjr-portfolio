@@ -48,7 +48,6 @@
     "description": "Web app for DIU students with real-time grade analysis, interactive charts, and academic summaries.",
     "techStack": ["NextJS", "TailwindCSS", "Framer Motion"]
   },
-
   {
     "name": "WorkoutBuddy",
     "img": "/projects/workoutbuddy.png",
@@ -76,7 +75,7 @@
   {
     "name": "Faraja Events",
     "img": "/projects/farajaevents.png",
-    "live": "https://faraja-events.vercel.app/",
+    "live": "https://faraja-event.vercel.app/",
     "github": "https://faraja-events.vercel.app/",
     "description": "An event management landing page for a client.",
     "techStack": ["NextJS", "TailwindCSS", "Framer Motion"]

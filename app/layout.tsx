@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   title: "Sakib Nahid | Web Developer Portfolio",
   description:
     "Explore Sakib Nahid's personal portfolio showcasing projects, skills, and experience as a full-Stack web developer.",
+  metadataBase: new URL("https://sakibnjr.site"),
+  openGraph: {
+    title: "Sakib Nahid | Web Developer Portfolio",
+    description:
+      "Full-Stack Web Developer specializing in React, Next.js, and modern web technologies",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

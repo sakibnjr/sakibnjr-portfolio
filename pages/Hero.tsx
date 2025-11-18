@@ -48,7 +48,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden lg:px-8"
+      className="relative flex min-h-[calc(100vh-4rem)] lg:min-h-screen w-full flex-col items-center justify-center overflow-hidden lg:px-8 pt-16 lg:pt-0"
       id="home"
     >
       <style jsx global>{`
@@ -86,10 +86,10 @@ const Hero = () => {
       `}</style>
 
       {/* Main Content Container */}
-      <div className="relative w-full max-w-4xl mx-auto pb-16">
+      <div className="relative w-full max-w-4xl mx-auto px-4 py-4 sm:py-0">
         {/* Header: Contains main content */}
         <motion.header
-          className="text-center space-y-6"
+          className="text-center space-y-6 sm:space-y-10"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -116,7 +116,7 @@ const Hero = () => {
           {/* Sub-headline */}
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-600 dark:text-neutral-400 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto"
+            className="text-xs sm:text-base md:text-lg lg:text-xl text-neutral-600 dark:text-neutral-400 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto leading-relaxed"
           >
             As a Frontend Developer, I transform innovative ideas into elegant,
             user-centric applications using modern web technologies.
@@ -125,7 +125,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <motion.nav
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 items-center justify-center w-full pt-4 sm:pt-6"
+            className="flex flex-col sm:flex-row gap-2 sm:gap-4 md:gap-6 items-center justify-center w-full pt-2 sm:pt-6"
           >
             {/* Primary Button - Explore My Work */}
             <motion.div
@@ -173,7 +173,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center justify-center text-foreground/60 cursor-pointer hover:text-foreground/80 transition-colors"
+        className="absolute bottom-2 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center justify-center text-foreground/60 cursor-pointer hover:text-foreground/80 transition-colors"
         onClick={scrollDown}
       >
         <span className="text-xs sm:text-sm md:text-base mb-1 sm:mb-2 font-medium">

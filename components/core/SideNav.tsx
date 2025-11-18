@@ -216,7 +216,7 @@ const SideNav = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed top-0 right-0 h-screen w-80 max-w-[85vw] bg-background z-50 lg:hidden shadow-2xl flex flex-col"
+            className="fixed top-0 right-0 h-full max-h-screen w-80 max-w-[85vw] bg-background z-50 lg:hidden shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header - Fixed */}
             <div className="flex items-center justify-between p-6 border-b border-border/10 flex-shrink-0">
@@ -231,7 +231,7 @@ const SideNav = () => {
             </div>
 
             {/* Navigation Items - Scrollable */}
-            <nav className="flex-1 p-6 overflow-y-auto min-h-0">
+            <nav className="flex-1 p-6 overflow-y-auto overflow-x-hidden min-h-0">
               <ul className="space-y-3">
                 {navItems.map((item, index) => (
                   <motion.li
@@ -278,7 +278,7 @@ const SideNav = () => {
             </nav>
 
             {/* Theme Toggle - Fixed at Bottom */}
-            <div className="p-6 border-t border-border/20 flex-shrink-0 bg-background/95 backdrop-blur-sm">
+            <div className="p-6 border-t border-border/20 flex-shrink-0 bg-background">
               <div className="flex items-center justify-between">
                 <span className="text-base font-medium text-foreground/80 font-sans">
                   Theme

@@ -88,57 +88,29 @@ const AboutMe: React.FC = () => {
           variants={scaleVariants}
         >
           <ProfileCard className="h-full flex flex-col justify-center items-center p-4 sm:p-6">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
-              }
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] relative"
-            >
+            <div className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] relative">
               <Image
                 src="/Nahid.jpg"
                 fill
-                priority
+                loading="lazy"
                 alt="Sakib Nahid's Photo"
-                className="rounded-2xl z-50 object-cover"
+                className="rounded-2xl z-10 object-cover"
+                sizes="(max-width: 640px) 150px, 200px"
               />
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl font-bold relative mt-2 text-white z-20"
-            >
+            </div>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold relative mt-2 text-white z-20">
               Sakib Nahid
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-center text-neutral-300 mt-2 sm:mt-3 relative text-base sm:text-lg z-20"
-            >
+            </p>
+            <p className="text-center text-neutral-300 mt-2 sm:mt-3 relative text-base sm:text-lg z-20">
               Frontend Addictive <br />
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 0.5 } : { opacity: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="font-semibold text-xs sm:text-sm italic"
-              >
+              <span className="font-semibold text-xs sm:text-sm italic opacity-50">
                 Capable of Full-Stack
-              </motion.span>
+              </span>
               <br />
-              <motion.span
-                initial={{ opacity: 0, x: -10 }}
-                animate={
-                  isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }
-                }
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="text-xs sm:text-sm"
-              >
+              <span className="text-xs sm:text-sm">
                 I learn whatever I found interesting
-              </motion.span>
-            </motion.p>
+              </span>
+            </p>
           </ProfileCard>
         </GridItemWrapper>
 
@@ -147,25 +119,11 @@ const AboutMe: React.FC = () => {
           className="col-span-1 sm:col-span-2 lg:col-span-2 lg:col-start-3 lg:row-start-1 row-span-2 border rounded-xl shadow flex justify-center items-center px-3 py-2"
           variants={slideInVariants}
         >
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={
-              isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
-            }
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="uppercase tracking-widest text-lg lg:text-2xl font-semibold"
-          >
+          <h1 className="uppercase tracking-widest text-lg lg:text-2xl font-semibold">
             Full-Stack
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-rose-500"
-            >
-              -
-            </motion.span>
+            <span className="text-rose-500">-</span>
             Developer
-          </motion.h1>
+          </h1>
         </GridItemWrapper>
 
         {/* Education */}
@@ -181,22 +139,17 @@ const AboutMe: React.FC = () => {
           className="col-span-1 sm:col-span-2 lg:col-span-2 lg:col-start-3 lg:row-start-3 row-span-4"
           variants={itemVariants}
         >
-          <motion.div
-            className="h-full flex flex-col"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
+          <div className="h-full flex flex-col">
             <h1 className="text-center text-xl md:text-2xl font-bold mb-3">
               Certifications
             </h1>
             <Certifications data={certifications} />
-          </motion.div>
+          </div>
         </GridItemWrapper>
 
         {/* Logo */}
         <GridItemWrapper
-          className="col-span-1 sm:col-span-1 lg:col-span-1 lg:col-start-3 lg:row-start-7 row-span-2 rounded-lg flex justify-center items-center w-full border rounded-xl shadow"
+          className="col-span-1 sm:col-span-1 lg:col-span-1 lg:col-start-3 lg:row-start-7 row-span-2 flex justify-center items-center w-full border rounded-xl shadow"
           variants={scaleVariants}
         >
           <LogoN />
@@ -207,16 +160,9 @@ const AboutMe: React.FC = () => {
           className="col-span-1 sm:col-span-2 lg:col-span-2 lg:col-start-5 lg:row-start-5 row-span-2 overflow-hidden"
           variants={itemVariants}
         >
-          <motion.div
-            className="h-full"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={
-              isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }
-            }
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
+          <div className="h-full">
             <ProjectStatsGrid stats={stats} />
-          </motion.div>
+          </div>
         </GridItemWrapper>
 
         {/* Tech Stack */}
@@ -224,17 +170,12 @@ const AboutMe: React.FC = () => {
           className="col-span-1 sm:col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-5 row-span-4 border rounded-xl shadow"
           variants={itemVariants}
         >
-          <motion.div
-            className="flex flex-col items-center justify-center h-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
+          <div className="flex flex-col items-center justify-center h-full">
             <h1 className="text-center text-xl md:text-2xl font-bold w-full mb-3">
               Tech Stack
             </h1>
             <TechStack />
-          </motion.div>
+          </div>
         </GridItemWrapper>
 
         {/* Connect With Me */}
