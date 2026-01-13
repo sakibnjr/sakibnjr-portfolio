@@ -116,7 +116,7 @@ const Hero = () => {
           {/* Sub-headline */}
           <motion.p
             variants={itemVariants}
-            className="text-xs sm:text-base md:text-lg lg:text-xl text-neutral-600 dark:text-neutral-400 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
             As a Frontend Developer, I transform innovative ideas into elegant,
             user-centric applications using modern web technologies.

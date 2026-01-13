@@ -20,12 +20,16 @@ import {
   BsEnvelope,
   BsList,
   BsX,
+  BsBriefcase,
+  BsGithub,
 } from "react-icons/bs";
 
 const navItems = [
   { href: "#home", icon: BsHouse, label: "Home" },
   { href: "#about", icon: BsPerson, label: "ReadME" },
+  { href: "#experience", icon: BsBriefcase, label: "Experience" },
   { href: "#projects", icon: BsCodeSlash, label: "Projects" },
+  { href: "#activity", icon: BsGithub, label: "Activity" },
   { href: "#blog", icon: BsBook, label: "Blog" },
   { href: "#contact", icon: BsEnvelope, label: "Contact" },
 ];
@@ -133,14 +137,14 @@ const SideNav = () => {
                           relative flex items-center justify-center h-10 w-10 rounded-full
                           text-foreground/70 hover:text-primary hover:bg-primary/10
                           transition-all duration-200 group
-                          ${
-                            activeSection === item.href
-                              ? "bg-rose-500/15 text-rose-500"
-                              : ""
+                          ${activeSection === item.href
+                            ? "bg-rose-500/15 text-rose-500"
+                            : ""
                           }
                         `}
                       >
-                        <item.icon className="h-5 w-5" />
+                        <item.icon className="h-5 w-5" aria-hidden="true" />
+                        <span className="sr-only">{item.label}</span>
                         {activeSection === item.href && (
                           <motion.div
                             layoutId="activeIndicator"
@@ -250,14 +254,13 @@ const SideNav = () => {
                         flex items-center space-x-4 p-4 rounded-xl
                         hover:bg-primary/10 hover:text-primary
                         transition-all duration-200 touch-manipulation
-                        ${
-                          activeSection === item.href
-                            ? "bg-rose-500/10 text-rose-500 font-semibold"
-                            : "text-foreground/80"
+                        ${activeSection === item.href
+                          ? "bg-rose-500/10 text-rose-500 font-semibold"
+                          : "text-foreground/80"
                         }
                       `}
                     >
-                      <item.icon className="h-6 w-6 flex-shrink-0" />
+                      <item.icon className="h-6 w-6 flex-shrink-0" aria-hidden="true" />
                       <span className="text-lg">{item.label}</span>
                       {activeSection === item.href && (
                         <motion.div

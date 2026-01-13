@@ -130,120 +130,122 @@ const Contact: React.FC = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative container mx-auto min-h-[90vh] pt-12 md:pt-0 flex flex-col justify-center items-center overflow-hidden"
+      className="relative py-24 min-h-[90vh] flex flex-col justify-center items-center overflow-hidden"
     >
-      <motion.div
-        className="w-full max-w-7xl mx-auto"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-          {/* Left Side - Text Content */}
-          <motion.div
-            variants={itemVariants}
-            className="w-full lg:w-1/2 text-left"
-          >
-            <motion.h2
+      <div className="container mx-auto px-4">
+        <motion.div
+          className="w-full max-w-7xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+            {/* Left Side - Text Content */}
+            <motion.div
               variants={itemVariants}
-              className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4"
+              className="w-full lg:w-1/2 text-left"
             >
-              Let&apos;s Build Something Amazing
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg text-muted-foreground mb-8"
-            >
-              Whether you have a project in mind or just want to explore
-              possibilities, I&apos;m here to help bring your vision to life.
-            </motion.p>
-
-            {/* Contact Info */}
-            <div className="space-y-4">
-              {contactInfo.map((item) => (
-                <motion.div
-                  key={item.title}
-                  variants={itemVariants}
-                  className="flex items-start gap-3"
-                >
-                  <div className="mt-1">{item.icon}</div>
-                  <div>
-                    <h3 className="font-semibold text-base sm:text-lg mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">
-                      {item.content}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right Side - Contact Form */}
-          <motion.div variants={itemVariants} className="w-full lg:w-1/2">
-            <div className="bg-card border border-border/50 rounded-lg p-6 sm:p-8 shadow-xl">
-              <motion.h3
+              <motion.h2
                 variants={itemVariants}
-                className="text-xl sm:text-2xl font-semibold text-foreground mb-6"
+                className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4"
               >
-                Send Me a Message
-              </motion.h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {formFields.map((field) => (
-                  <motion.div key={field.id} variants={itemVariants}>
+                Let&apos;s Build Something Amazing
+              </motion.h2>
+              <motion.p
+                variants={itemVariants}
+                className="text-base sm:text-lg text-muted-foreground mb-8 text-left max-w-2xl"
+              >
+                Whether you have a project in mind or just want to explore
+                possibilities, I&apos;m here to help bring your vision to life.
+              </motion.p>
+
+              {/* Contact Info */}
+              <div className="space-y-4">
+                {contactInfo.map((item) => (
+                  <motion.div
+                    key={item.title}
+                    variants={itemVariants}
+                    className="flex items-start gap-3"
+                  >
+                    <div className="mt-1">{item.icon}</div>
+                    <div>
+                      <h3 className="font-semibold text-base sm:text-lg mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-muted-foreground">
+                        {item.content}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Side - Contact Form */}
+            <motion.div variants={itemVariants} className="w-full lg:w-1/2">
+              <div className="bg-card border border-border/50 rounded-lg p-6 sm:p-8 shadow-xl">
+                <motion.h3
+                  variants={itemVariants}
+                  className="text-xl sm:text-2xl font-semibold text-foreground mb-6"
+                >
+                  Send Me a Message
+                </motion.h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {formFields.map((field) => (
+                    <motion.div key={field.id} variants={itemVariants}>
+                      <label
+                        htmlFor={field.id}
+                        className="block text-sm font-medium text-muted-foreground mb-1"
+                      >
+                        {field.label}
+                      </label>
+                      <Input
+                        type={field.type}
+                        id={field.id}
+                        name={field.id}
+                        placeholder={field.placeholder}
+                        value={formData[field.id as keyof typeof formData]}
+                        onChange={handleChange}
+                        required
+                        className="bg-background border-input focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
+                      />
+                    </motion.div>
+                  ))}
+                  <motion.div variants={itemVariants}>
                     <label
-                      htmlFor={field.id}
+                      htmlFor="message"
                       className="block text-sm font-medium text-muted-foreground mb-1"
                     >
-                      {field.label}
+                      Message
                     </label>
-                    <Input
-                      type={field.type}
-                      id={field.id}
-                      name={field.id}
-                      placeholder={field.placeholder}
-                      value={formData[field.id as keyof typeof formData]}
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Your message here..."
+                      rows={5}
+                      value={formData.message}
                       onChange={handleChange}
                       required
                       className="bg-background border-input focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                     />
                   </motion.div>
-                ))}
-                <motion.div variants={itemVariants}>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-muted-foreground mb-1"
-                  >
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Your message here..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="bg-background border-input focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
-                  />
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
-                    <FiSend className="mr-2 h-5 w-5" />
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </motion.div>
-              </form>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
+                  <motion.div variants={itemVariants}>
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      <FiSend className="mr-2 h-5 w-5" />
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </motion.div>
+                </form>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

@@ -1,0 +1,15 @@
+[
+    {
+        "company": "Softvence Agency",
+        "position": "Front-end Developer",
+        "period": "Nov 2025 - Present",
+        "description": "Leading front-end development initiatives, focusing on creating highly interactive and performant user interfaces using Next.js and Tailwind CSS. Implementing advanced animations and ensuring seamless user experiences.",
+        "skills": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Framer Motion"
+        ]
+    }
+]
