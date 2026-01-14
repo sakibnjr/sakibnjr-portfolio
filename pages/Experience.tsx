@@ -5,7 +5,15 @@ import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import experienceData from "@/data/experience.json";
 import { FiBriefcase, FiCalendar } from "react-icons/fi";
 
-const TimelineItem = ({ item, index, total }: { item: any; index: number; total: number }) => {
+interface ExperienceItem {
+    company: string;
+    position: string;
+    period: string;
+    description: string;
+    skills: string[];
+}
+
+const TimelineItem = ({ item, index }: { item: ExperienceItem; index: number }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -110,7 +118,7 @@ const Experience = () => {
                         transition={{ delay: 0.2 }}
                         className="text-base sm:text-lg text-muted-foreground mt-4 text-center max-w-2xl mx-auto"
                     >
-                        A timeline of my professional career and the impact I've made at each stop along the way.
+                        A timeline of my professional career and the impact I&apos;ve made at each stop along the way.
                     </motion.p>
                 </div>
 
@@ -135,7 +143,6 @@ const Experience = () => {
                                 key={`${item.company}-${index}`}
                                 item={item}
                                 index={index}
-                                total={experienceData.length}
                             />
                         ))}
                     </div>

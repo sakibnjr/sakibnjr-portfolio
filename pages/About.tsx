@@ -213,10 +213,12 @@ const AboutMe: React.FC = () => {
 
 export default AboutMe;
 
+import { Variants } from "motion/react";
+
 interface GridItemWrapperProps {
   children: React.ReactNode;
   className?: string;
-  variants?: any;
+  variants?: Variants;
 }
 
 const GridItemWrapper: React.FC<GridItemWrapperProps> = ({

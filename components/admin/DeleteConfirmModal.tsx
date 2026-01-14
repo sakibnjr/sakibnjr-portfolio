@@ -56,7 +56,7 @@ const DeleteConfirmModal: React.FC<DeleteConfirmModalProps> = ({
                             </h3>
 
                             <p className="text-muted-foreground mb-6">
-                                Are you sure you want to delete <span className="text-foreground font-semibold">"{itemName}"</span>? This action cannot be undone.
+                                Are you sure you want to delete <span className="text-foreground font-semibold">&quot;{itemName}&quot;</span>? This action cannot be undone.
                             </p>
 
                             <div className="flex gap-3 w-full">

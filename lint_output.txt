@@ -1,0 +1,17 @@
+
+./pages/About.tsx
+219:14  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./pages/Experience.tsx
+8:38  Error: 'total' is defined but never used.  @typescript-eslint/no-unused-vars
+8:55  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+113:78  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./components/admin/DeleteConfirmModal.tsx
+59:113  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+59:124  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./components/ui/pointer-highlight.tsx
+39:47  Warning: The ref value 'containerRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'containerRef.current' to a variable inside the effect, and use that variable in the cleanup function.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
